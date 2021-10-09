@@ -9,8 +9,6 @@ import Connection from "./database/db.js";
 import DefaultData from "./default.js";
 import Routes from './routes/routes.js';
 
-//Payment Gateway API 
-import { v4 as uuid } from 'uuid';
 
 dotenv.config()
 
@@ -40,17 +38,4 @@ app.listen(PORT, ()=> console.log(`Server is Successfully Runing on PORT ${PORT}
 DefaultData();
 
 
-//Payment Gateway Paytm Calling API from .ENV
 
-export let paytmMerchantKey = process.env.PAYTM_MERCHANT_KEY;
-export let paytmParams = {};
-paytmParams['MID'] = process.env.PAYTM_MID;
-paytmParams['WEBSITE'] = process.env.PAYTM_WEBSITE;
-paytmParams['CHANNEL_ID'] = process.env.PAYTM_CHANNEL_ID;
-paytmParams['INDUSTRY_TYPE_ID'] = process.env.PAYTM_INDUSTRY_TYPE_ID;
-paytmParams['ORDER_ID'] = uuid();
-paytmParams['CUST_ID'] = process.env.PAYTM_CUST_ID;
-paytmParams['TXT_AMOUNT'] = '100';
-paytmParams['CALLBACK_URL'] = 'http://localhost:8000/callback';
-paytmParams['EMAIL'] = 'ajaywebsolution@gmail.com';
-paytmParams['MOBILE_NO'] = '9717499606'
